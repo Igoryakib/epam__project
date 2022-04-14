@@ -1,0 +1,63 @@
+.collectionProducts__card {
+    max-width: 900px;
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card__img {
+    margin-bottom: 10px;
+    width: 150px;
+    height: 300px;
+}
+
+/* .card__img--width1 {
+    width: 300px;
+}
+
+.card__img--width2 {
+    width: 200px;
+} */
+
+.card__title {
+    font-size: 19px;
+    font-weight: 400;
+    font-family: 'Dosis', sans-serif;
+    margin-bottom: 12px;
+}
+
+/* .card__title--padding {
+    padding: 20px;
+} */
+
+.card__listInformation {
+    max-width: 985px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .card__listInformation {
+        width: 55%;
+    }
+    .collectionProducts__card {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .collectionProducts__card {
+        width: 30%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .collectionProducts__card {
+        width: 20%;
+    }
+}
