@@ -6,21 +6,33 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: 200ms;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.collectionProducts__card:hover {
+    border: 2px solid black;
+    -webkit-box-shadow: 10px 10px 40px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 40px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 40px 0px rgba(0,0,0,0.75);
 }
 
 .card__img {
     margin-bottom: 10px;
-    width: 150px;
+    width: 140px;
     height: 300px;
+    border-radius: 25px;
 }
 
-/* .card__img--width1 {
+.card__img__width1 {
     width: 300px;
 }
 
-.card__img--width2 {
+.card__img__width2 {
     width: 200px;
-} */
+}
 
 .card__title {
     font-size: 19px;
@@ -28,10 +40,6 @@
     font-family: 'Dosis', sans-serif;
     margin-bottom: 12px;
 }
-
-/* .card__title--padding {
-    padding: 20px;
-} */
 
 .card__listInformation {
     max-width: 985px;

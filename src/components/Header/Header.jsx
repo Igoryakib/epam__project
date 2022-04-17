@@ -1,7 +1,9 @@
 import React from "react";
 
 import styles from './Header.module.css';
-const Header = () => {
+import { connect } from "react-redux";
+import { getAmountBoughtProducts } from "../../redux/boughtProducts/boughtProducts-selectors";
+const Header = ({amountBoughtProducts}) => {
     return(
         <header className={styles.headerBackground}>
         <div className={styles.headerContent}>
@@ -10,7 +12,7 @@ const Header = () => {
             <button className={styles.headerContent__counterShopping}>
                 <h3 className={styles.counterShopping__title}>cart</h3>
                 <div className={styles.counterShopping__backgroundElem}>
-                        <span className={styles.counterShopping__elem1}>0</span>
+                        <span className={styles.counterShopping__elem1}>{amountBoughtProducts}</span>
                 </div>
             </button>
         </div>
@@ -18,4 +20,8 @@ const Header = () => {
     );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+    amountBoughtProducts: getAmountBoughtProducts(state),
+});
+
+export default connect(mapStateToProps)(Header);
