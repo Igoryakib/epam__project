@@ -12,6 +12,7 @@ const middleware = [
     ...getDefaultMiddleware(),
 ];
 
+
 const store = configureStore({
     reducer: rootReducer,
     middleware: middleware,

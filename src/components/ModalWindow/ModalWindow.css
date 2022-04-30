@@ -12,6 +12,14 @@
   }
   
   .Modal {
-    max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 24px);
+    padding: 40px 0;
+    max-width: 1140px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
   }

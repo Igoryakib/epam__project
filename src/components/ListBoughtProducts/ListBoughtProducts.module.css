@@ -1,0 +1,59 @@
+.cardImg {
+    width: 95px;
+    height: 95px;
+}
+
+.cardSpecialWidth {
+    width: 60px;
+}
+
+.contentModal {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 100%;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.itemProduct {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 750px;
+    margin-bottom: 30px;
+}
+
+.productTitle {
+    font-size: 19px;
+    font-weight: 400;
+    font-family: 'Dosis', sans-serif;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 14px;
+}
+
+.productSubtitle {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Dosis', sans-serif;
+    color: rgba(255, 116, 23, 1);
+}
+
+.wrapperTitles {
+    width: 145px;
+}
+
+.arrowBtn {
+    margin-bottom: 10px;
+}
+
+.arrowRotate {
+    transform: rotate(180deg);
+}
+
+.amountProducts {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Dosis', sans-serif;
+    color: rgba(34, 34, 34, 1);
+    margin-bottom: 10px;
+}

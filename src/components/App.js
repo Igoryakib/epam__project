@@ -1,41 +1,58 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
-import '../css/styles.css';
+import "../css/styles.css";
 
 import { getAllProducts } from "../redux/products/products-operations";
 import { getAllBoughtProducts } from "../redux/boughtProducts/boughtProducts-operations";
+import {filterProductsByName, filterProductsByPrice} from '../redux/products/products-actions';
 
 import Header from "./Header/Header";
 import Button from "./Button/Button";
 import ListProducts from "./ListProducts/ListProducts";
 import Modal from "./ModalWindow/ModalWindow";
+import ContentModal from "./ContentModal/ContentModal";
 
-const App = ({getProducts, getBoughtProducts}) => {
-    useEffect(() => {
-        getProducts();
-        getBoughtProducts();
-    }, [])
-    return(
-        <>
-            <Header/>
-            <main>
-                <section className="collectionProducts">
-                    <div className='collectionProducts__listButtons'>
-                    <Button text="Sort by Product Name" />
-                    <Button text="Sort by Price"/>
-                    </div>
-                    <ListProducts/>
-                </section>
-                <Modal/>
-            </main>
-        </>
-    );
+const App = ({ getProducts, getBoughtProducts, filterByName, filterByPrice}) => {
+  const [isModal, setIsModal] = useState(false);
+  useEffect(() => {
+    getProducts();
+    getBoughtProducts();
+  }, []);
+  return (
+    <>
+      <Header openModal={() => setIsModal(!isModal)} />
+      <main>
+        <section className="collectionProducts">
+          <div className="collectionProducts__listButtons">
+            <Button onClick={filterByName} text="Sort by Product Name" />
+            <Button onClick={filterByPrice} text="Sort by Price" />
+          </div>
+          <ListProducts />
+          {isModal && (
+            <Modal
+              onClick={() => setIsModal(!isModal)}
+            >
+            <ContentModal closeModal={() => setIsModal(!isModal)}/>
+            </Modal>
+          )}
+        </section>
+      </main>
+    </>
+  );
+};
+
+App.propTypes = {
+  getProducts: PropTypes.func.isRequired,
+  getBoughtProducts: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    getProducts: () => dispatch(getAllProducts()),
-    getBoughtProducts: () => dispatch(getAllBoughtProducts()),
-})
+  getProducts: () => dispatch(getAllProducts()),
+  getBoughtProducts: () => dispatch(getAllBoughtProducts()),
+  filterByName: () => dispatch(filterProductsByName()),
+  filterByPrice: () => dispatch(filterProductsByPrice()),
+});
 
 export default connect(null, mapDispatchToProps)(App);

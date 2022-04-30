@@ -5,3 +5,7 @@
     font-size: 15px;
     border: 1px solid #A0A3AD;
 }
+
+.bgColor {
+    background-color: rgba(255, 116, 23, 1);
+}

@@ -15,7 +15,11 @@ const addBoughtProduct = (credentials) => {
 };
 
 const deleteBoughtProduct = (productId) => {
-    return axios.delete('/boughtProducts', productId).then(res => res.data).catch(err => console.log(err))
+    return axios.delete(`/boughtProducts/${productId}`).then(res => res.data).catch(err => console.log(err))
 };
 
-export {getProducts, getBoughtProducts, addBoughtProduct, deleteBoughtProduct};
+const changeAmountProductsApi = (productId, credentials) => {
+    return axios.put(`/boughtProducts/${productId}`, credentials).then(res => res.data).catch(err => console.log(err))
+};
+
+export {getProducts, getBoughtProducts, addBoughtProduct, deleteBoughtProduct, changeAmountProductsApi};
