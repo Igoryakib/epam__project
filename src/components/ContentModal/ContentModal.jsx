@@ -5,12 +5,15 @@ import { connect } from "react-redux";
 import ListBoughtProducts from "../ListBoughtProducts/ListBoughtProducts";
 import { deleteProduct } from "../../redux/boughtProducts/boughtProducts-operations";
 import { getBoughtProducts } from "../../redux/boughtProducts/boughtProducts-selectors";
+import { isLoading } from "../../redux/selectors";
+
+import Loader from "../Loader/Loader";
 
 import Button from "../Button/Button";
 import cross from "../../img/cross.png";
 import styles from "./ContentModal.module.css";
 
-const ContentModal = ({ closeModal, boughtProducts, clearBasket }) => {
+const ContentModal = ({ closeModal, boughtProducts, clearBasket, isLoading }) => {
   const clearProductsBasket = (arrayProducts) => {
     arrayProducts.map((item) => clearBasket(item.id));
   };
@@ -21,7 +24,7 @@ const ContentModal = ({ closeModal, boughtProducts, clearBasket }) => {
       </button>
       <div>
         <h2 className={styles.titleModal}>Your Cart</h2>
-        <ListBoughtProducts />
+        {isLoading ? <Loader/> : <ListBoughtProducts />}
         <h4 className={styles.titleModal}>
           Total: &#36;
           {boughtProducts.reduce((acc, item) => {
@@ -40,10 +43,12 @@ const ContentModal = ({ closeModal, boughtProducts, clearBasket }) => {
 
 ContentModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => ({
   boughtProducts: getBoughtProducts(state),
+  isLoading: isLoading(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

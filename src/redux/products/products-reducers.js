@@ -18,7 +18,14 @@ const productsReducerError = createReducer("", {
   [getProductError]: (_, action) => action.payload,
 });
 
+const isLoadingReducer = createReducer(false, {
+  [getProductsRequest]: (_, action) => true,
+  [getProductSuccess]: (_, action) => false,
+  [getProductError]: (_, action) => false
+})
+
 export default combineReducers({
   listProducts: productsReducer,
   errors: productsReducerError,
+  isLoading: isLoadingReducer
 });

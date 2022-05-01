@@ -1,11 +1,13 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import reducers from "./products/products-reducers";
+import productsReducers from "./products/products-reducers";
 import boughtProductsReducers from "./boughtProducts/boughtProducts-reducers";
+import reducers from './reducers';
 
 const rootReducer = combineReducers({
-    products: reducers,
-    boughtProducts: boughtProductsReducers
+    products: productsReducers,
+    boughtProducts: boughtProductsReducers,
+    isLoading: reducers
 });
 
 const middleware = [

@@ -1,6 +1,7 @@
 .cardImg {
     width: 95px;
     height: 95px;
+    display: none;
 }
 
 .cardSpecialWidth {
@@ -11,7 +12,7 @@
     margin: 0 auto;
     max-width: 900px;
     width: 100%;
-    height: 400px;
+    height: 200px;
     overflow-y: scroll;
 }
 
@@ -19,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 750px;
+    width: 240px;
     margin-bottom: 30px;
 }
 
@@ -56,4 +57,22 @@
     font-family: 'Dosis', sans-serif;
     color: rgba(34, 34, 34, 1);
     margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .contentModal {
+        height: 400px;
+    }
+    .itemProduct {
+        width: 440px;
+    }
+    .cardImg {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .itemProduct {
+        width: 740px;
+    } 
 }

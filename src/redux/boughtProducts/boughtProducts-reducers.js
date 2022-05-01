@@ -21,13 +21,7 @@ const boughtProductsReducer = createReducer([], {
   [deleteBoughtProductSuccess]: (state, action) =>
     state.filter((item) => +item.id !== +action.payload),
   [changeAmountProductsSuccess]: (state, action) => {
-    state.splice(
-      state.find((item, index) => {
-        return item.name === action.payload.name ? index : false;
-      }),
-      1,
-      action.payload
-    );
+    state.splice(state.findIndex(item => +item.id === +action.payload.id), 1, action.payload);
     return state;
   },
 });

@@ -1,0 +1,58 @@
+.loader-container {
+    position: relative;
+    height: 50vmin;
+    width: 50vmin;
+    background-color: transparent;
+}
+
+.text {
+    text-align: center;
+    color: #FF7417;
+    font-size: 20px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 2.5rem;
+}
+
+.ball {
+    position: absolute;
+    top: 9vmin;
+    height: 5vmin;
+    width: 5vmin;
+    background: #FF7417;
+    border-radius: 100%;
+    transform-origin: -10vmin center;
+}
+
+.ball-2 {
+    right: 12.5vmin;
+    animation: linear 3s infinite sheep1;
+}
+
+.ball-1 {
+    right: -2.5vmin;
+    animation: linear 3s infinite sheep2;
+}
+
+@keyframes sheep1 {
+    33% {
+        transform: rotate(0deg);
+    }
+
+    66% {
+        transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(-180deg) translate(-30vmin);
+    }
+}
+
+@keyframes sheep2 {
+    33%, 66% {
+        transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(-180deg) translate(-30vmin);
+    }
+}

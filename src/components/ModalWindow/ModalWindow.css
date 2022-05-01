@@ -14,7 +14,7 @@
   .Modal {
     padding: 40px 0;
     max-width: 1140px;
-    width: 100%;
+    width: 75%;
     border-radius: 20px;
     background-color: #fff;
     position: relative;
@@ -22,4 +22,10 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .Modal {
+      width: 1000%;
+    }
   }

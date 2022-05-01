@@ -44,10 +44,10 @@ const deleteProduct = (productId) => (dispatch) => {
     });
 };
 
-const changeAmountProduct = (productId, credentials) => (dispatch) => {
+const changeAmountProduct = (productId, credentials, productIndex) => (dispatch) => {
   dispatch(changeAmountProductsRequest());
   changeAmountProductsApi(productId, credentials).then((res) => {
-    dispatch(changeAmountProductsSuccess(res));
+    dispatch(changeAmountProductsSuccess(res, productIndex));
   })
   .catch((err) => {
     dispatch(changeAmountProductsError(err.message));
