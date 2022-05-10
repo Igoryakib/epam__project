@@ -50,11 +50,11 @@ const ListBoughtProducts = ({ boughtProducts, deleteBoughtProduct, changeAmountB
               <p className={styles.productSubtitle}>&#36;{item.price}</p>
             </div>
             <div>
-              <button onClick={() => increaseAmountProducts(boughtProducts, item.id)} type="button" className={styles.arrowBtn}>
+              <button onClick={() => increaseAmountProducts(boughtProducts, item.id)} type="button" className={styles.arrowRotate}>
                 <img src={arrow} alt="arrow" />
               </button>
               <h4 className={styles.amountProducts}>{item.amount}</h4>
-              <button onClick={() => decreaseAmountProducts(boughtProducts, item.id)} type="button" className={styles.arrowRotate}>
+              <button onClick={() => decreaseAmountProducts(boughtProducts, item.id)} type="button">
                 <img src={arrow} alt="arrow" />
               </button>
             </div>

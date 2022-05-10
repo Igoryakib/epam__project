@@ -1,5 +1,5 @@
 .cardImg {
-    width: 95px;
+    width: 70px;
     height: 95px;
     display: none;
 }
@@ -43,12 +43,9 @@
     width: 145px;
 }
 
-.arrowBtn {
-    margin-bottom: 10px;
-}
-
 .arrowRotate {
     transform: rotate(180deg);
+    margin-bottom: 10px;
 }
 
 .amountProducts {

@@ -22,12 +22,13 @@ box-shadow: 10px 10px 40px 0px rgba(0,0,0,0.75);
 .card__img {
     margin-bottom: 10px;
     width: 140px;
-    height: 300px;
+    height: 270px;
     border-radius: 25px;
 }
 
 .card__img__width1 {
-    width: 300px;
+    width: 230px;
+    height: 230px;
 }
 
 .card__img__width2 {
