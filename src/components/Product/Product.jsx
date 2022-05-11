@@ -8,8 +8,11 @@ import styles from './Product.module.css';
 import Button from "../Button/Button";
 
 import {buyProduct} from '../../redux/boughtProducts/boughtProducts-operations';
+import { getBoughtProducts } from "../../redux/boughtProducts/boughtProducts-selectors";
+import {addBoughtProductError} from '../../redux/boughtProducts/boughtProducts-actions';
 
-const Product = ({name, price, img, width, addBoughtProduct, id}) => {
+
+const Product = ({name, price, img, width, addBoughtProduct, id, boughtProducts, sendError}) => {
     const addWidthImg = (width) => (classNames(styles.card__img, {
         [styles.card__img__width1]: width === 300,
         [styles.card__img__width2]: width === 200
@@ -22,7 +25,7 @@ const Product = ({name, price, img, width, addBoughtProduct, id}) => {
             img,
             id,
         };
-        addBoughtProduct(productObj)
+            addBoughtProduct(productObj)
     };
     return(
         <li className={styles.collectionProducts__card}>
@@ -43,8 +46,13 @@ Product.propTypes = {
     addBoughtProduct: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
     addBoughtProduct: (productObj) => (dispatch(buyProduct(productObj))),
+    sendError: (textError) => (dispatch(addBoughtProductError(textError))),
 });
 
-export default connect(null, mapStateToProps)(Product);
+const mapStateToProps = (state) => ({
+    boughtProducts: getBoughtProducts(state),
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
